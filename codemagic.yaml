@@ -1,0 +1,20 @@
+workflows:
+react-native-workflow:
+name: React Native Workflow
+max_build_duration: 60
+environment:
+vars:
+NODE_ENV: production
+scripts:
+- name: Install dependencies
+script: |
+npm install
+- name: Run tests
+script: |
+npm test
+- name: Build Android
+script: |
+npx react-native run-android --variant=release
+- name: Build iOS
+script: |
+npx react-native run-ios --configuration Release
